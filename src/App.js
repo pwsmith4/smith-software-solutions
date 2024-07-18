@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+import Header from './components/Header';
+import Home from './components/Home';
+import Services from './components/Services';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { colors } from './colors';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: ${colors.text};
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+const MainContent = styled.main`
+  padding-top: 80px; // Adjust this value based on your header height
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header />
+      <MainContent>
+        <Home />
+        <Services />
+        <About />
+        <Contact />
+      </MainContent>
+      <Footer />
+    </>
   );
 }
 
